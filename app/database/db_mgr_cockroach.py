@@ -1,5 +1,3 @@
-import random
-import time
 import json
 import traceback
 from typing import Callable
@@ -103,6 +101,9 @@ class DbManagerCockroach:
             for i, row in enumerate(rows):
                 print(f"row{i}:{row}")
 
+    def select_db(self, db_name):
+        self.execute(f"USE {db_name}")
+
     def add_row(self, table, columns, values, returning=None):
         # table should be a string
         # columns and values should both be tuples of the same length
@@ -118,7 +119,7 @@ class DbManagerCockroach:
 
         if expecting_return:
             if exe_rtn and len(exe_rtn) == 1:
-                return expecting_return[0][0]
+                return exe_rtn[0][0]
             else:
                 return
 
