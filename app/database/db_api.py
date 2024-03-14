@@ -1,4 +1,4 @@
-from db_mgr_cockroach import DbManagerCockroach
+from .db_mgr_cockroach import DbManagerCockroach
 
 
 class DBAPI():
