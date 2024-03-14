@@ -112,3 +112,27 @@ CREATE TABLE pitches(
     launch INT CHECK(launch BETWEEN 1 AND 5),
     crush INT CHECK(crush BETWEEN 1 AND 5)
 );
+
+CREATE TYPE USER_LEVEL AS ENUM(
+    'administrator',
+    'user'
+);
+
+CREATE SEQUENCE seq_users_id start with 1;
+CREATE TABLE users (
+  id INT8 NOT NULL DEFAULT nextval('seq_users_id'),
+  public_id CHAR(36) NOT NULL,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  email VARCHAR(64) NOT NULL,
+  password_hash CHAR(88) NOT NULL,
+  level USER_LEVEL NOT NULL DEFAULT 'user',
+  confirmed BOOL NOT NULL DEFAULT false,
+  registered_on TIMESTAMP NULL,
+  confirmed_on TIMESTAMP NULL,
+  CONSTRAINT users_pkey PRIMARY KEY (id ASC),
+  INDEX sec_idx_user_email (email ASC)
+);
+
+INSERT INTO users(first_name, last_name, email, public_id, password_hash, level, confirmed, confirmed_on)
+VALUES ('Tegan', 'Counts', 'tegan.counts@gmail.com', 'fd806fa3-a483-41be-b9b5-339c670ccca2', 'sha256$0Bd49YcPyR36gY3m$fc77db748c4cb1ec6ade8cc08544af604962b6571c2be105fe5181577fc99fcb', 'administrator', 'true', '2024-01-01 00:00:00');
