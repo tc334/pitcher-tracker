@@ -5,12 +5,12 @@ from db_api import DBAPI
 
 def add_opponents(db):
     db.add_via_dict("opponents", {
-        "name": "Prosper Pride",
+        "name": "Prosper Pride 13",
         "birth_year": 2013
     })
 
     db.add_via_dict("opponents", {
-        "name": "Prosper Pride",
+        "name": "Prosper Pride 14",
         "birth_year": 2014
     })
 
