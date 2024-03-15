@@ -7,3 +7,4 @@ COCKROACH_URL = environ.get('COCKROACH_URL')
 DB_NAME = environ.get('DB_NAME')
 
 SENDGRID_API_KEY = environ.get('SENDGRID_API_KEY')
+BYPASS_AUTH = environ.get('BYPASS_AUTH').lower() == "true"

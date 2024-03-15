@@ -1,6 +1,21 @@
+import datetime
+
 from dotenv import dotenv_values
+import json
+from json import JSONEncoder
 
 from db_api import DBAPI
+
+
+class DateTimeEncoder(JSONEncoder):
+    # Override the default method
+    def default(self, obj):
+        if isinstance(obj, (datetime.date, datetime.datetime)):
+            return obj.isoformat()
+
+
+def json_dumps_custom(dict_in, indent=0):
+    return json.dumps(dict_in, indent=indent, sort_keys=True, cls=DateTimeEncoder)
 
 
 def add_opponents(db):
@@ -90,3 +105,7 @@ if __name__ == '__main__':
     add_opponents(db)
     add_sign_card(db)
     add_games(db)
+
+    data = db.get_all_limited("games")
+    for row in data:
+        print(json_dumps_custom(row, indent=4))

@@ -127,6 +127,7 @@ CREATE TABLE users (
   email VARCHAR(64) NOT NULL,
   password_hash CHAR(88) NOT NULL,
   level USER_LEVEL NOT NULL DEFAULT 'user',
+  status STRING NOT NULL DEFAULT 'active',
   confirmed BOOL NOT NULL DEFAULT false,
   registered_on TIMESTAMP NULL,
   confirmed_on TIMESTAMP NULL,
