@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from .. import db
 from .auth_wraps import token_required, admin_only, all_members
-from date_time_encoder import json_dumps_custom
+from .date_time_encoder import json_dumps_custom
 
 sign_cards_bp = Blueprint('sign_cards', __name__)
 

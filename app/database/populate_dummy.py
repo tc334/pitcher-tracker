@@ -106,6 +106,6 @@ if __name__ == '__main__':
     add_sign_card(db)
     add_games(db)
 
-    data = db.get_all_limited("games")
+    data = db.get_all("games")
     for row in data:
         print(json_dumps_custom(row, indent=4))

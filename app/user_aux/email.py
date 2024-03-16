@@ -5,7 +5,7 @@ from flask import current_app
 
 def send_email(to, subject, template):
     message = Mail(
-        from_email='tegan@duckclub.app',
+        from_email='tegan.counts@gmail.com',
         to_emails=to,
         subject=subject,
         html_content=template)

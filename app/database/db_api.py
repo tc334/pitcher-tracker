@@ -1,21 +1,17 @@
-# from db_mgr_cockroach import DbManagerCockroach
-import db_mgr_cockroach as DBC
+# from .db_mgr_cockroach import DbManagerCockroach
+from app.database.db_mgr_cockroach import DbManagerCockroach
 
 
 class DBAPI:
     def __init__(self):
-        self.db = DBC.DbManagerCockroach()
+        self.db = DbManagerCockroach()
 
     def init_app(self, db_url, db_name):
         self.db.init_app(db_url)
         self.db.select_db(db_name)
 
     def add_via_dict(self, table, dict_in, returning=None):
-        ret_val = self.db.add_row_by_dict(table, dict_in, returning=returning)
-        if returning is not None and len(returning) == 1:
-            return ret_val[0]
-        else:
-            return ret_val
+        return self.db.add_row_by_dict(table, dict_in, returning=returning)
 
     def update_row(self, table_name, id_value, update_dict):
         self.db.update_row(table_name, id_value, update_dict)
