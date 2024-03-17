@@ -1,5 +1,5 @@
 //
-//  TeamListView.swift
+//  GameListView.swift
 //  PitcherTrackerFrontend
 //
 //  Created by Tegan Counts on 3/16/24.
@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct TeamListView: View {
+struct GameListView: View {
     @State private var sheetPresented = false
     @Environment(DataViewModel.self) private var dataViewModel
     
     let myHeight = 50.0
     
     var body: some View {
-        List(dataViewModel.teams){ team in
+        List(dataViewModel.games){ game in
             NavigationLink{
-                TeamDetailView(team: team)
+                GameDetailView(game: game)
             } label:{
-                Text(team.name + " (" + String(team.birth_year) + ")")
+                Text(game.date.description + " vs " + game.opponent_id)
                     .frame(height: myHeight)
             }
             .font(.title2)
@@ -30,10 +30,10 @@ struct TeamListView: View {
                 )
             }
         }
-        .navigationTitle("Teams")
+        .navigationTitle("Games")
         .sheet(isPresented: $sheetPresented, content: {
             NavigationStack{
-                TeamDetailView(team: Team())
+                GameDetailView(game: Game())
             }
         })
         
@@ -42,7 +42,7 @@ struct TeamListView: View {
 
 #Preview {
     NavigationStack {
-        TeamListView()
+        GameListView()
             .environment(DataViewModel())
     }
 }

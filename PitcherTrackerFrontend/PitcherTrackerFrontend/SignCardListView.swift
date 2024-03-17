@@ -1,5 +1,5 @@
 //
-//  TeamListView.swift
+//  SignCardListView.swift
 //  PitcherTrackerFrontend
 //
 //  Created by Tegan Counts on 3/16/24.
@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct TeamListView: View {
+struct SignCardListView: View {
     @State private var sheetPresented = false
     @Environment(DataViewModel.self) private var dataViewModel
     
     let myHeight = 50.0
     
     var body: some View {
-        List(dataViewModel.teams){ team in
+        List(dataViewModel.signCards){ signCard in
             NavigationLink{
-                TeamDetailView(team: team)
+                SignCardDetailView(signCard: signCard)
             } label:{
-                Text(team.name + " (" + String(team.birth_year) + ")")
+                Text(signCard.name)
                     .frame(height: myHeight)
             }
             .font(.title2)
@@ -30,10 +30,10 @@ struct TeamListView: View {
                 )
             }
         }
-        .navigationTitle("Teams")
+        .navigationTitle("Sign Cards")
         .sheet(isPresented: $sheetPresented, content: {
             NavigationStack{
-                TeamDetailView(team: Team())
+                SignCardDetailView(signCard: SignCard())
             }
         })
         
@@ -42,7 +42,7 @@ struct TeamListView: View {
 
 #Preview {
     NavigationStack {
-        TeamListView()
+        SignCardListView()
             .environment(DataViewModel())
     }
 }

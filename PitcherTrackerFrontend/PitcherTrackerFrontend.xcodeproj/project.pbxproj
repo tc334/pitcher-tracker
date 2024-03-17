@@ -13,6 +13,16 @@
 		5B41EDFF2BA6135600CEA362 /* TeamDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41EDFE2BA6135600CEA362 /* TeamDetailView.swift */; };
 		5B41EE012BA616C200CEA362 /* NumberOnlyViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41EE002BA616C200CEA362 /* NumberOnlyViewModifier.swift */; };
 		5B41EE032BA61EB200CEA362 /* TeamListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41EE022BA61EB200CEA362 /* TeamListView.swift */; };
+		5B41EE052BA6338F00CEA362 /* SignCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41EE042BA6338F00CEA362 /* SignCardModel.swift */; };
+		5B41EE072BA6365200CEA362 /* SignCardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41EE062BA6365200CEA362 /* SignCardListView.swift */; };
+		5B41EE092BA6454000CEA362 /* SignCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41EE082BA6454000CEA362 /* SignCardDetailView.swift */; };
+		5B41EE0B2BA6479300CEA362 /* SignCardPitchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41EE0A2BA6479300CEA362 /* SignCardPitchDetailView.swift */; };
+		5B7E83B92BA66192007F8184 /* NumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E83B82BA66192007F8184 /* NumberPadView.swift */; };
+		5B7E83F32BA67517007F8184 /* PitchSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E83F22BA67517007F8184 /* PitchSelectorView.swift */; };
+		5B7E83F52BA68DA4007F8184 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E83F42BA68DA4007F8184 /* GameModel.swift */; };
+		5B7E83F72BA69093007F8184 /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E83F62BA69093007F8184 /* GameDetailView.swift */; };
+		5B7E83F92BA695DB007F8184 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E83F82BA695DB007F8184 /* CustomPickerView.swift */; };
+		5B7E83FB2BA6A2F2007F8184 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E83FA2BA6A2F2007F8184 /* GameListView.swift */; };
 		5BF231072BA5F090004CD325 /* PitcherTrackerFrontendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF231062BA5F090004CD325 /* PitcherTrackerFrontendApp.swift */; };
 		5BF231092BA5F090004CD325 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF231082BA5F090004CD325 /* ContentView.swift */; };
 		5BF2310B2BA5F091004CD325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF2310A2BA5F091004CD325 /* Assets.xcassets */; };
@@ -49,6 +59,16 @@
 		5B41EDFE2BA6135600CEA362 /* TeamDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailView.swift; sourceTree = "<group>"; };
 		5B41EE002BA616C200CEA362 /* NumberOnlyViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOnlyViewModifier.swift; sourceTree = "<group>"; };
 		5B41EE022BA61EB200CEA362 /* TeamListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListView.swift; sourceTree = "<group>"; };
+		5B41EE042BA6338F00CEA362 /* SignCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignCardModel.swift; sourceTree = "<group>"; };
+		5B41EE062BA6365200CEA362 /* SignCardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignCardListView.swift; sourceTree = "<group>"; };
+		5B41EE082BA6454000CEA362 /* SignCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignCardDetailView.swift; sourceTree = "<group>"; };
+		5B41EE0A2BA6479300CEA362 /* SignCardPitchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignCardPitchDetailView.swift; sourceTree = "<group>"; };
+		5B7E83B82BA66192007F8184 /* NumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPadView.swift; sourceTree = "<group>"; };
+		5B7E83F22BA67517007F8184 /* PitchSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchSelectorView.swift; sourceTree = "<group>"; };
+		5B7E83F42BA68DA4007F8184 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		5B7E83F62BA69093007F8184 /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
+		5B7E83F82BA695DB007F8184 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		5B7E83FA2BA6A2F2007F8184 /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
 		5BF231032BA5F090004CD325 /* PitcherTrackerFrontend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitcherTrackerFrontend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF231062BA5F090004CD325 /* PitcherTrackerFrontendApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitcherTrackerFrontendApp.swift; sourceTree = "<group>"; };
 		5BF231082BA5F090004CD325 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,13 +137,23 @@
 				5BF231302BA5F9D7004CD325 /* SettingsView.swift */,
 				5B3397562BA600090020ABFC /* PitcherListView.swift */,
 				5B41EE022BA61EB200CEA362 /* TeamListView.swift */,
+				5B41EE062BA6365200CEA362 /* SignCardListView.swift */,
+				5B7E83FA2BA6A2F2007F8184 /* GameListView.swift */,
 				5BF231342BA5FD3F004CD325 /* PitcherDetailView.swift */,
 				5B41EDFE2BA6135600CEA362 /* TeamDetailView.swift */,
+				5B41EE082BA6454000CEA362 /* SignCardDetailView.swift */,
+				5B41EE0A2BA6479300CEA362 /* SignCardPitchDetailView.swift */,
+				5B7E83F62BA69093007F8184 /* GameDetailView.swift */,
 				5B41EE002BA616C200CEA362 /* NumberOnlyViewModifier.swift */,
 				5BF2310A2BA5F091004CD325 /* Assets.xcassets */,
 				5B3397582BA606850020ABFC /* DataViewModel.swift */,
 				5BF231322BA5FB4F004CD325 /* PitcherModel.swift */,
 				5B41EDFC2BA6130900CEA362 /* TeamModel.swift */,
+				5B41EE042BA6338F00CEA362 /* SignCardModel.swift */,
+				5B7E83F42BA68DA4007F8184 /* GameModel.swift */,
+				5B7E83B82BA66192007F8184 /* NumberPadView.swift */,
+				5B7E83F22BA67517007F8184 /* PitchSelectorView.swift */,
+				5B7E83F82BA695DB007F8184 /* CustomPickerView.swift */,
 				5BF2310C2BA5F091004CD325 /* Preview Content */,
 			);
 			path = PitcherTrackerFrontend;
@@ -284,17 +314,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B41EE0B2BA6479300CEA362 /* SignCardPitchDetailView.swift in Sources */,
+				5B7E83F92BA695DB007F8184 /* CustomPickerView.swift in Sources */,
+				5B7E83FB2BA6A2F2007F8184 /* GameListView.swift in Sources */,
 				5B41EE012BA616C200CEA362 /* NumberOnlyViewModifier.swift in Sources */,
 				5BF231312BA5F9D7004CD325 /* SettingsView.swift in Sources */,
 				5BF231332BA5FB4F004CD325 /* PitcherModel.swift in Sources */,
 				5B41EDFD2BA6130900CEA362 /* TeamModel.swift in Sources */,
 				5B41EDFF2BA6135600CEA362 /* TeamDetailView.swift in Sources */,
 				5BF231092BA5F090004CD325 /* ContentView.swift in Sources */,
+				5B41EE092BA6454000CEA362 /* SignCardDetailView.swift in Sources */,
 				5BF231352BA5FD3F004CD325 /* PitcherDetailView.swift in Sources */,
 				5B3397572BA600090020ABFC /* PitcherListView.swift in Sources */,
+				5B7E83F32BA67517007F8184 /* PitchSelectorView.swift in Sources */,
+				5B7E83F52BA68DA4007F8184 /* GameModel.swift in Sources */,
 				5B3397592BA606850020ABFC /* DataViewModel.swift in Sources */,
 				5BF231072BA5F090004CD325 /* PitcherTrackerFrontendApp.swift in Sources */,
+				5B41EE072BA6365200CEA362 /* SignCardListView.swift in Sources */,
+				5B7E83B92BA66192007F8184 /* NumberPadView.swift in Sources */,
+				5B41EE052BA6338F00CEA362 /* SignCardModel.swift in Sources */,
 				5B41EE032BA61EB200CEA362 /* TeamListView.swift in Sources */,
+				5B7E83F72BA69093007F8184 /* GameDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

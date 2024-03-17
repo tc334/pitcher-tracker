@@ -11,4 +11,9 @@ struct Team: Codable, Identifiable, Hashable {
     var id = UUID().uuidString
     var name = ""
     var birth_year = 0
+    
+    func prettyName() -> String {
+        let a = name + " (" + String(birth_year) + ")"
+        return a
+    }
 }

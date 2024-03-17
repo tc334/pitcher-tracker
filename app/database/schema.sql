@@ -4,11 +4,11 @@ create database pitching_1_0;
 
 use pitching_1_0;
 
-CREATE TABLE opponents(
+CREATE TABLE teams(
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     timestamp TIMESTAMPTZ(0) DEFAULT localtimestamp() NOT NULL,
     created_by STRING DEFAULT current_user(),
-    name STRING NOT NULL,
+    name STRING UNIQUE NOT NULL,
     birth_year INT
 );
 
@@ -16,7 +16,8 @@ CREATE TABLE sign_cards (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     timestamp TIMESTAMPTZ(0) DEFAULT localtimestamp() NOT NULL,
     created_by STRING DEFAULT current_user(),
-    name STRING NOT NULL
+    name STRING NOT NULL,
+    team_id UUID references teams(id) NOT NULL
 );
 
 CREATE TYPE PITCH_TYPE AS ENUM(
@@ -30,6 +31,7 @@ CREATE TYPE PITCH_TYPE AS ENUM(
 );
 
 CREATE TABLE junction_sign_cards(
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     timestamp TIMESTAMPTZ(0) DEFAULT localtimestamp() NOT NULL,
     created_by STRING DEFAULT current_user(),
     sign_card UUID REFERENCES sign_cards(id),
@@ -45,7 +47,9 @@ CREATE TABLE pitchers(
     timestamp TIMESTAMPTZ(0) DEFAULT localtimestamp() NOT NULL,
     created_by STRING DEFAULT current_user(),
     first_name STRING NOT NULL,
-    last_name STRING
+    last_name STRING,
+    current_team_id UUID references teams(id) NOT NULL,
+    CONSTRAINT pitcher_uniqueness UNIQUE(first_name, last_name)
 );
 
 CREATE TYPE FIELD_TYPE AS ENUM(
@@ -64,7 +68,8 @@ CREATE TABLE games(
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     timestamp TIMESTAMPTZ(0),
     created_by STRING DEFAULT current_user(),
-    opponent UUID REFERENCES opponents(id),
+    pitchers_team_id UUID REFERENCES teams(id) NOT NULL,
+    opponent_id UUID REFERENCES teams(id),
     field_type FIELD_TYPE,
     game_type GAME_TYPE
 );
@@ -89,8 +94,8 @@ CREATE TABLE pitches(
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     timestamp TIMESTAMPTZ(0) DEFAULT localtimestamp() NOT NULL,
     created_by STRING DEFAULT current_user(),
-    pitcher UUID REFERENCES pitchers(id),
-    game UUID REFERENCES games(id),
+    pitcher_id UUID REFERENCES pitchers(id),
+    game_id UUID REFERENCES games(id),
     inning INT,
     score_pitcher INT,
     score_opponent INT,
@@ -120,19 +125,20 @@ CREATE TYPE USER_LEVEL AS ENUM(
 
 CREATE SEQUENCE seq_users_id start with 1;
 CREATE TABLE users (
-  id INT8 NOT NULL DEFAULT nextval('seq_users_id'),
-  public_id CHAR(36) NOT NULL,
-  first_name VARCHAR(30) NOT NULL,
-  last_name VARCHAR(30) NOT NULL,
-  email VARCHAR(64) NOT NULL,
-  password_hash CHAR(88) NOT NULL,
-  level USER_LEVEL NOT NULL DEFAULT 'user',
-  status STRING NOT NULL DEFAULT 'active',
-  confirmed BOOL NOT NULL DEFAULT false,
-  registered_on TIMESTAMP NULL,
-  confirmed_on TIMESTAMP NULL,
-  CONSTRAINT users_pkey PRIMARY KEY (id ASC),
-  INDEX sec_idx_user_email (email ASC)
+    id INT8 NOT NULL DEFAULT nextval('seq_users_id'),
+    public_id CHAR(36) NOT NULL,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    email VARCHAR(64) NOT NULL,
+    password_hash CHAR(88) NOT NULL,
+    level USER_LEVEL NOT NULL DEFAULT 'user',
+    status STRING NOT NULL DEFAULT 'active',
+    confirmed BOOL NOT NULL DEFAULT false,
+    registered_on TIMESTAMP NULL,
+    confirmed_on TIMESTAMP NULL,
+    CONSTRAINT users_pkey PRIMARY KEY (id ASC),
+    INDEX sec_idx_user_email (email ASC),
+    team_id UUID references teams(id)
 );
 
 INSERT INTO users(first_name, last_name, email, public_id, password_hash, level, confirmed, confirmed_on)
